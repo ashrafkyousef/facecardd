@@ -17,10 +17,16 @@ body[data-route="login"]{background:#000}body[data-route="login"] .header{max-wi
 .entry-panel{width:min(100%,640px);padding:34px 36px;background:#070b10e8;border-radius:30px}.entry-panel h2{font-size:clamp(28px,4vw,42px);font-weight:500;margin:0 0 28px}.entry-panel .cta{margin:0 0 24px;font-size:clamp(15px,2.5vw,21px);padding:19px 12px;background:#c32183}.entry-panel .cta:last-of-type{margin-bottom:14px}.entry-help{font-size:12px;line-height:1.5;color:#d8d2d8;margin:14px 0 0}.entry-band{background:#c32183;text-align:center;padding:30px 24px 34px}.entry-band h2{font-weight:500;font-size:28px;margin:0 0 16px}.entry-band p{line-height:1.65;margin:0 auto 20px;max-width:600px;color:#ffe8f5}.entry-band .cta{max-width:550px;margin:auto;background:#000;font-size:16px}.entry-message{color:#ffe7f3;line-height:1.5;font-size:14px;padding-top:6px}
 @media(max-width:600px){body[data-route="login"] .header{height:82px}.entry-hero{padding:35px 24px 30px}.entry-title{font-size:clamp(48px,12vw,72px);margin:6px 0 28px}.entry-panel{padding:25px 22px;border-radius:24px}.entry-panel h2{font-size:28px;margin-bottom:24px}.entry-panel .cta{font-size:15px;margin-bottom:22px}.entry-band h2{font-size:25px}}
 .face-logo{display:block;width:66px;height:66px;object-fit:contain}@media(max-width:600px){.face-logo{width:54px;height:54px}}
-</style>
+#install-app{display:block;width:100%;padding:14px;border:0;border-radius:6px;background:transparent;color:white;text-align:left;font:inherit;cursor:pointer}#install-app:hover{background:#ffffff12}#install-help{max-width:min(90vw,440px);background:#15151a;color:white;border:1px solid #555;border-radius:18px;padding:25px;line-height:1.6}#install-help::backdrop{background:#0009}#install-help h2{margin-top:0}#install-help button{padding:10px 20px;border:0;border-radius:7px;background:#ca167f;color:white}</style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FACE Ashraf">
+<script src="./pwa.js" defer></script>
 </head>
 <body>
-<header class="header"><a class="brand" href="#login" aria-label="Facecard home"><img class="face-logo" src="assets/face-logo.jpg" alt="FACE — Flight Attendant Club of Emirates" width="400" height="400"></a><details class="menu"><summary aria-label="Open navigation menu"><span class="hamburger" aria-hidden="true"></span></summary><nav aria-label="Main navigation"><a href="#login">Entry page</a><a href="#home">Home</a><a href="#card">Membership card</a><a href="#profile">My profile</a></nav></details></header>
+<header class="header"><a class="brand" href="#login" aria-label="Facecard home"><img class="face-logo" src="assets/face-logo.jpg" alt="FACE — Flight Attendant Club of Emirates" width="400" height="400"></a><details class="menu"><summary aria-label="Open navigation menu"><span class="hamburger" aria-hidden="true"></span></summary><nav aria-label="Main navigation"><a href="#login">Entry page</a><a href="#home">Home</a><a href="#card">Membership card</a><a href="#profile">My profile</a><button type="button" id="install-app">Add to home screen</button></nav></details></header>
 <main>
 <section id="login" aria-labelledby="entry-title">
   <div class="entry-hero">
@@ -47,5 +53,5 @@ function render(){const requested=location.hash.slice(1);const current=routes.in
 document.getElementById('air-wing').addEventListener('click',()=>{const message=document.getElementById('air-wing-message');message.hidden=!message.hidden;document.getElementById('air-wing').setAttribute('aria-expanded',String(!message.hidden));});
 window.addEventListener('hashchange',render);render();
 </script>
-</body>
+<dialog id="install-help" aria-labelledby="install-title"><h2 id="install-title">Add FACE to your home screen</h2><p>On iPhone or iPad, open this page in Safari, tap Share, then Add to Home Screen.</p><p>On Android, open this page in Chrome and use its menu to select Install app or Add to Home screen.</p><p id="install-status">Visit once online to save your card for offline use.</p><form method="dialog"><button>Close</button></form></dialog></body>
 </html>
